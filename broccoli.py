@@ -61,7 +61,7 @@ while rcount1<rcount2:
     #heal
     if decision=="heal":
         player_hp=player_hp+player_heal
-    if player_decision=="1":
+    if player_decision=="2":
         player_hp=player_hp+player_heal
     #fear
     if decision=="fear":
