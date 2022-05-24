@@ -1,4 +1,3 @@
-#https://github.com/granvlocyta/broccoli/commit/b62f709d30529066febe1ed396041b1e91ec9203?diff=unified
 import sys
 import random
 rcount1=1
