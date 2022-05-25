@@ -33,12 +33,11 @@ print("you can heal ",player_heal," ammount of hp in one round.\n use decision �
 player_fear=1
 print("you can ˘fear˘ your enemy to reduce yor enemys ˘atk˘ and ˘heal˘ stats by ",player_fear," FEAR(3)")
 player_rage=1
-print("yo can increase your ˘atk˘ by ",player_rage," but it will reduce your hp by thea same ammount. RAGE(4)")
+print("you can increase your ˘atk˘ by ",player_rage," but it will reduce your hp by thea same ammount. RAGE(4)")
 poison_on_enemy=0  
 player_poison=1
 print("you can poison your enemy by using the ˘poison˘ decision. it will reduce enemy hp by ",player_poison," every round POISON(5)")
 print("you can skip a round by not writing anything")
-print("attack(1) heal(2) fear(3) rage(4) poison(5)" )
 while rcount1<rcount2:
     #poison ticks
     enemy_hp=enemy_hp-poison_on_enemy
@@ -52,6 +51,9 @@ while rcount1<rcount2:
         sys.exit()
         exit()
     #player action
+    print("attack(1) heal(2) fear(3) rage(4) poison(5)" )
+    print("enemy hp is ",enemy_hp," enemy atk is ",enemy_atk," enemy heal is ",enemy_heal)
+    print("player hp is ", player_hp)
     decision=str(input("decision\n"))
     #attack
     if decision=="attack":
@@ -61,7 +63,7 @@ while rcount1<rcount2:
     #heal
     if decision=="heal":
         player_hp=player_hp+player_heal
-    if player_decision=="2":
+    if decision=="2":
         player_hp=player_hp+player_heal
     #fear
     if decision=="fear":
@@ -72,8 +74,8 @@ while rcount1<rcount2:
         if enemy_heal<=0:
             enemy_heal=0
     if decision=="3":
-                enemy_atk=enemy_atk-player_fear
-        enemy_heal=enemy_heal-player_fear
+        enemy_atk=enemy_atk-player_fear
+        enemy_heal=enemy_heal-player_fear 
         if enemy_atk<=0:
             enemy_atk=1
         if enemy_heal<=0:
@@ -107,14 +109,10 @@ while rcount1<rcount2:
         #attack
         if enemy_hp>og_enemy_hp/2 and enemy_action==0:
             player_hp=player_hp-enemy_atk
-            print("enemy used ATTACK! player hp is ",player_hp)
             enemy_action=1
         #heal
         if enemy_hp<og_enemy_hp/2 and enemy_action==0:
             enemy_hp=enemy_hp+enemy_heal
-            print("enemy used HEAL! enemy hp is ",enemy_hp)
             enemy_action=1
-        print("enemy hp is ",enemy_hp)
-        print("player hp is ",player_hp)
         rcount2=rcount2+1
        
