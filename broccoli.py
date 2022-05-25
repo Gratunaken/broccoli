@@ -1,3 +1,4 @@
+#https://github.com/Gratunaken/broccoli/commit/b62f709d30529066febe1ed396041b1e91ec9203?diff=unified
 import sys
 import random
 rcount1=1
@@ -38,6 +39,8 @@ poison_on_enemy=0
 player_poison=1
 print("you can poison your enemy by using the ˘poison˘ decision. it will reduce enemy hp by ",player_poison," every round POISON(5)")
 print("you can skip a round by not writing anything")
+# stuff for the hp bar
+dot="│"
 while rcount1<rcount2:
     #poison ticks
     enemy_hp=enemy_hp-poison_on_enemy
@@ -53,7 +56,7 @@ while rcount1<rcount2:
     #player action
     print("attack(1) heal(2) fear(3) rage(4) poison(5)" )
     print("enemy hp is ",enemy_hp," enemy atk is ",enemy_atk," enemy heal is ",enemy_heal)
-    print("player hp is ", player_hp)
+    print("HP ", player_hp*dot)
     decision=str(input("decision\n"))
     #attack
     if decision=="attack":
@@ -104,15 +107,18 @@ while rcount1<rcount2:
         #cleanse
         if poison_on_enemy>=3 and enemy_action==0:
             poison_on_enemy=0
-            print("enemy has cleansed himself!")
+            print("enemy has cleansed himself!\n")
             enemy_action=1
         #attack
         if enemy_hp>og_enemy_hp/2 and enemy_action==0:
             player_hp=player_hp-enemy_atk
+            print("The enemy has attacked\n")
             enemy_action=1
         #heal
         if enemy_hp<og_enemy_hp/2 and enemy_action==0:
             enemy_hp=enemy_hp+enemy_heal
+            print("the enemy has healed\n")
             enemy_action=1
         rcount2=rcount2+1
+
        
