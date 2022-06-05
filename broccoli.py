@@ -51,17 +51,30 @@ while rcount1<rcount2:
         print("YOU WIN")
         sys.exit()
         exit()
+    print("enemy HP: ",enemy_hp*"I","")
     #player action
     decision=input("decision\n")
     #attack
-    if decision==("attack" or "1"):
+    if decision=="attack":
+        enemy_hp=enemy_hp-player_atk
+    if decision=="1":
         enemy_hp=enemy_hp-player_atk
     #heal
-    if decision==("heal" or "2"):
+    if decision=="heal":
+        player_hp=player_hp+player_heal
+        print("player hp is ",player_hp)
+    if decision=="2":
         player_hp=player_hp+player_heal
         print("player hp is ",player_hp)
     #fear
-    if decision==("fear" or "3"):
+    if decision=="fear":
+        enemy_atk=enemy_atk-player_fear
+        if enemy_atk<=0:
+            enemy_atk=1
+            enemy_heal=enemy_heal-player_fear
+        if enemy_heal<=0:
+            enemy_heal=0
+    if decision=="3":
         enemy_atk=enemy_atk-player_fear
         if enemy_atk<=0:
             enemy_atk=1
@@ -69,13 +82,20 @@ while rcount1<rcount2:
         if enemy_heal<=0:
             enemy_heal=0
     #rage
-    if decision==("rage" or "4"):
+    if decision=="rage":
+        player_atk=player_atk+player_rage
+        player_hp=player_hp-player_rage
+        print("player atk is ",player_atk)
+        print("palyer hp is ", player_hp)
+    if decision=="4":
         player_atk=player_atk+player_rage
         player_hp=player_hp-player_rage
         print("player atk is ",player_atk)
         print("palyer hp is ", player_hp)
     #poison
-    if decision==("poison" or "5"):
+    if decision=="poison":
+        poison_on_enemy=poison_on_enemy+player_poison
+    if decision=="5":
         poison_on_enemy=poison_on_enemy+player_poison
     rcount1=rcount1+1
     while rcount1==rcount2:
@@ -100,6 +120,7 @@ while rcount1<rcount2:
         print("enemy hp is ",enemy_hp)
         rcount2=rcount2+1
        
+
 
 
        
