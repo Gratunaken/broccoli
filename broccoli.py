@@ -51,7 +51,7 @@ while rcount1<rcount2:
         print("YOU WIN")
         sys.exit()
         exit()
-    print("enemy HP: ",enemy_hp*"I","")
+    print("enemy HP: ",enemy_hp*"I","\nenemy atk ",enemy_atk,"\n enemy heal ",enemy_heal,"\npoison on enemy ",poison_on_enemy)
     #player action
     decision=input("decision\n")
     #attack
@@ -119,6 +119,8 @@ while rcount1<rcount2:
             enemy_action=1
         print("enemy hp is ",enemy_hp)
         rcount2=rcount2+1
+       
+
        
 
 
