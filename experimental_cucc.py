@@ -73,7 +73,61 @@ while rcount1<rcount2:
     if decision=="fear":
         enemy_atk=enemy_atk-player_fear
         if enemy_atk<=0:
-            enemy_atk=1
+            enemy_heal=0
+    #rage
+    if decision=="rage":
+        player_atk=player_atk+player_rage
+        player_hp=player_hp-player_rage
+        print("player atk is ",player_atk)
+        print("palyer hp is ", player_hp)
+    if decision=="4":
+        player_atk=player_atk+player_rage
+        player_hp=player_hp-player_rage
+        print("player atk is ",player_atk)
+        print("palyer hp is ", player_hp)
+    #poison
+    if decision=="poison":
+        poison_on_enemy=poison_on_enemy+player_poison
+    if decision=="5":
+        poison_on_enemy=poison_on_enemy+player_poison
+    #stun
+    if decision=="stun":
+        estun=stun
+    if decision=="6":
+        estun=stun
+    rcount1=rcount1+1
+    if estun<=0:
+        estun=0
+    while rcount1==rcount2:
+            if estun==0:
+                #enemy action
+                enemy_action=0
+                #does the enemy attack or heal
+                #cleanse
+                if poison_on_enemy>=3 and enemy_action==0:
+                    poison_on_enemy=0
+                    print("enemy has cleansed himself!")
+                    enemy_action=1
+                #attack
+                if enemy_hp>og_enemy_hp/2 and enemy_action==0:
+                    player_hp=player_hp-enemy_atk
+                    print("enemy used ATTACK! player hp is ",player_hp)
+                    enemy_action=1
+                #heal
+                if enemy_hp<og_enemy_hp/2 and enemy_action==0:
+                    enemy_hp=enemy_hp+enemy_heal
+                    print("enemy used HEAL! enemy hp is ",enemy_hp)
+                    enemy_action=1
+                print("enemy hp is ",enemy_hp)                
+                print("enemy is stunned for ",estun," rounds")
+                print("\n\n")
+                estun=estun-1
+                rcount2=rcount2+1
+            else:
+                print("\n\n")
+                estun=estun-1
+                rcount2=rcount2+1
+                print("the enemy is stunned")   enemy_atk=1
             enemy_heal=enemy_heal-player_fear
         if enemy_heal<=0:
             enemy_heal=0
@@ -102,9 +156,11 @@ while rcount1<rcount2:
         poison_on_enemy=poison_on_enemy+player_poison
     #stun
     if decision=="stun":
-        estun=estun+stun
+        estun=stun
+    if decision=="6":
+        estun=stun
     rcount1=rcount1+1
-    if estun>=0:
+    if estun<=0:
         estun=0
     while rcount1==rcount2:
             if estun==0:
@@ -128,9 +184,16 @@ while rcount1<rcount2:
                     enemy_action=1
                 print("enemy hp is ",enemy_hp)                
                 print("enemy is stunned for ",estun," rounds")
-            print("\n\n")
-            estun=estun-1
-            rcount2=rcount2+1
+                print("\n\n")
+                estun=estun-1
+                rcount2=rcount2+1
+            else:
+                print("\n\n")
+                estun=estun-1
+                rcount2=rcount2+1
+                print("the enemy is stunned")
+       
+
        
 
        
