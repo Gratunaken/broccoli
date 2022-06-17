@@ -57,7 +57,8 @@ while rcount1<rcount2:
         print("YOU WIN")
         sys.exit()
         exit()
-    print("enemy HP: ",enemy_hp*"I","(",enemy_hp,")" "\n enemy atk ",enemy_atk,"\n enemy heal ",enemy_heal,"\npoison on enemy ",poison_on_enemy)
+    #UI--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    print("enemy HP: ",enemy_hp*"I","(",enemy_hp,")" " enemy atk ",enemy_atk," enemy heal ",enemy_heal,"poison on enemy ",poison_on_enemy)
     print("your mana is ",player_mana)
     #player action----------------------------------------------------------------------------------
     decision=input("decision\n")
@@ -103,7 +104,7 @@ while rcount1<rcount2:
                  enemy_heal=enemy_heal-player_fear
             if enemy_heal<=0:
                 enemy_heal=0
-                player_mana=player_mana-fear_mana_cost
+            player_mana=player_mana-fear_mana_cost
         else:
             print("dumbass not enough mana, you have to skip this round :)")
     #rage----------------------------------------------------------------------------------
@@ -154,7 +155,7 @@ while rcount1<rcount2:
             enemy_action=1
         print("enemy hp is ",enemy_hp)
         rcount2=rcount2+1
-       
+# to do list: get normal UI
 
        
 
